@@ -172,5 +172,11 @@
   .language-select,
   .artist-select {
     width: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .language-select:focus,
+  .artist-select:focus {
+    outline: none;
   }
 }
