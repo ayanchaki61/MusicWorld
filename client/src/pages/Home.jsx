@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <div className="home-header">
-        <h1>Music World</h1>
+        <h1>Melodify.in</h1>
         <p>Your Ultimate Music Streaming Experience with - <em>Ayan Chaki</em></p>
       </div>
 
