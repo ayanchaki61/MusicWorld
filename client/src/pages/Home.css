@@ -1,0 +1,159 @@
+.home-page {
+  min-height: 100vh;
+  padding: 2rem;
+  padding-bottom: 200px;
+}
+
+.home-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.home-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #1db954;
+  font-weight: 700;
+}
+
+.home-header p {
+  font-size: 1.25rem;
+  margin: 0.5rem 0 0 0;
+  color: #b3b3b3;
+}
+
+.filters-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #181818;
+  border-radius: 8px;
+}
+
+.language-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-filter label {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.language-select {
+  padding: 0.5rem 1rem;
+  background-color: #282828;
+  border: 1px solid #1db954;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.language-select:hover {
+  background-color: #333333;
+  border-color: #1ed760;
+}
+
+.artist-filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.artist-filter label {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.artist-select {
+  padding: 0.5rem 1rem;
+  background-color: #282828;
+  border: 1px solid #1db954;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.artist-select:hover {
+  background-color: #333333;
+  border-color: #1ed760;
+}
+
+.language-select:hover {
+  background-color: #333;
+}
+
+.language-select:focus {
+  border-color: #1ed760;
+  box-shadow: 0 0 0 2px rgba(30, 215, 96, 0.2);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #b3b3b3;
+  font-size: 1.25rem;
+}
+
+.error {
+  color: #ff4444;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background-color: #1db954;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #1ed760;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #b3b3b3;
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    padding: 1rem;
+    padding-bottom: 180px;
+  }
+
+  .home-header h1 {
+    font-size: 2rem;
+  }
+
+  .home-header p {
+    font-size: 1rem;
+  }
+}

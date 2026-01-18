@@ -1,0 +1,130 @@
+.admin-page {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #282828;
+}
+
+.admin-header h1 {
+  color: #1db954;
+  margin: 0;
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+}
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #ff4444;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #ff6666;
+}
+
+.admin-music-list {
+  margin-top: 3rem;
+}
+
+.admin-music-list h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.admin-table {
+  overflow-x: auto;
+}
+
+.admin-table table {
+  width: 100%;
+  background-color: #181818;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #282828;
+}
+
+.admin-table th {
+  background-color: #282828;
+  color: #fff;
+  font-weight: 600;
+}
+
+.admin-table td {
+  color: #b3b3b3;
+}
+
+.admin-table tr.editing {
+  background-color: #1a3a1a;
+  border-left: 3px solid #1db954;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-button {
+  padding: 0.5rem 1rem;
+  background-color: #1db954;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+  background-color: #1ed760;
+}
+
+.delete-button {
+  padding: 0.5rem 1rem;
+  background-color: #ff4444;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #ff6666;
+}
+
+@media (max-width: 768px) {
+  .admin-page {
+    padding: 1rem;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

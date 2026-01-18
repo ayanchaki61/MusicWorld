@@ -1,0 +1,76 @@
+.genre-filter {
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #181818;
+  border: 1px solid #282828;
+  border-radius: 24px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #1db954;
+}
+
+.search-input::placeholder {
+  color: #b3b3b3;
+}
+
+.genre-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.genre-chip {
+  padding: 0.5rem 1rem;
+  background-color: #181818;
+  border: 1px solid #282828;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.genre-chip:hover {
+  background-color: #282828;
+  border-color: #1db954;
+}
+
+.genre-chip.active {
+  background-color: #1db954;
+  border-color: #1db954;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .genre-chips {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+  }
+
+  .genre-chips::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .genre-chips::-webkit-scrollbar-track {
+    background: #181818;
+  }
+
+  .genre-chips::-webkit-scrollbar-thumb {
+    background: #282828;
+    border-radius: 2px;
+  }
+}

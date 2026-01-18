@@ -1,0 +1,153 @@
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #181818;
+  border-top: 1px solid #282828;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.player-empty {
+  text-align: center;
+  color: #b3b3b3;
+  padding: 1rem;
+}
+
+.player-track-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.player-cover {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.player-details h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.player-details p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.875rem;
+  color: #b3b3b3;
+}
+
+.player-album {
+  font-size: 0.75rem !important;
+  color: #808080 !important;
+  font-style: italic;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-play-button {
+  background-color: #1db954;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.player-play-button:hover {
+  background-color: #1ed760;
+}
+
+.player-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.player-time {
+  font-size: 0.75rem;
+  color: #b3b3b3;
+  min-width: 40px;
+}
+
+.player-slider {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.player-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.player-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 150px;
+}
+
+.volume-slider {
+  width: 100px;
+  background: linear-gradient(to right, #1db954 0%, #1db954 100%, #404040 100%, #404040 100%);
+}
+
+@media (max-width: 768px) {
+  .player {
+    padding: 0.75rem;
+  }
+
+  .player-track-info {
+    margin-bottom: 0.75rem;
+  }
+
+  .player-cover {
+    width: 50px;
+    height: 50px;
+  }
+
+  .player-details h3 {
+    font-size: 0.875rem;
+  }
+
+  .player-details p {
+    font-size: 0.75rem;
+  }
+
+  .player-volume {
+    display: none;
+  }
+}
