@@ -156,4 +156,21 @@
   .home-header p {
     font-size: 1rem;
   }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .language-filter,
+  .artist-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .language-select,
+  .artist-select {
+    width: 100%;
+  }
 }
