@@ -15,7 +15,9 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://musicworldroan.vercel.app'
+    'https://musicworldroan.vercel.app',
+    'https://melodify.in',
+    'https://www.melodify.in'
   ],
   credentials: true
 }));
