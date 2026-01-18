@@ -73,4 +73,25 @@
     background: #282828;
     border-radius: 2px;
   }
+
+  .genre-chip:focus {
+    outline: none;
+    background-color: #181818;
+    border-color: #282828;
+  }
+
+  .genre-chip:focus.active {
+    background-color: #1db954;
+    border-color: #1db954;
+  }
+
+  .genre-chip:active {
+    background-color: #181818;
+    border-color: #282828;
+  }
+
+  .genre-chip:active.active {
+    background-color: #1db954;
+    border-color: #1db954;
+  }
 }
