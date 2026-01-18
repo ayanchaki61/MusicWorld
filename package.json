@@ -7,7 +7,8 @@
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
     "install-all": "npm install && cd server && npm install && cd ../client && npm install",
-    "build": "cd client && npm run build"
+    "build": "cd server && npm install",
+    "start": "cd server && npm start"
   },
   "keywords": ["music", "streaming", "react", "node", "express", "mongodb"],
   "author": "",
