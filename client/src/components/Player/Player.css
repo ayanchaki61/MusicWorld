@@ -72,6 +72,34 @@
   background-color: #1ed760;
 }
 
+.player-nav-button {
+  background-color: transparent;
+  border: 1px solid #b3b3b3;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.player-nav-button:hover:not(:disabled) {
+  background-color: #282828;
+  border-color: #1db954;
+  color: #1db954;
+  transform: scale(1.05);
+}
+
+.player-nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .player-progress {
   display: flex;
   align-items: center;

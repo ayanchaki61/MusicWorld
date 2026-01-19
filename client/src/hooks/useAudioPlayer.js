@@ -4,6 +4,7 @@ import { storageService } from '../services/storageService';
 export const useAudioPlayer = () => {
   const audioRef = useRef(new Audio());
   const [currentTrack, setCurrentTrack] = useState(null);
+  const [playlist, setPlaylist] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -43,6 +44,15 @@ export const useAudioPlayer = () => {
     const handleEnded = () => {
       setIsPlaying(false);
       setCurrentTime(0);
+      // Auto-play next track if available
+      if (currentTrack && playlist.length > 0) {
+        const currentIndex = playlist.findIndex(track => track._id === currentTrack._id);
+        if (currentIndex < playlist.length - 1) {
+          const nextTrack = playlist[currentIndex + 1];
+          setCurrentTrack(nextTrack);
+          setIsPlaying(true);
+        }
+      }
     };
 
     const handlePlay = () => {
@@ -66,7 +76,7 @@ export const useAudioPlayer = () => {
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
     };
-  }, []);
+  }, [currentTrack, playlist]);
 
   // Update volume when it changes
   useEffect(() => {
@@ -113,6 +123,28 @@ export const useAudioPlayer = () => {
     }
   };
 
+  const playNextTrack = () => {
+    if (!currentTrack || playlist.length === 0) return;
+    
+    const currentIndex = playlist.findIndex(track => track._id === currentTrack._id);
+    if (currentIndex < playlist.length - 1) {
+      const nextTrack = playlist[currentIndex + 1];
+      setCurrentTrack(nextTrack);
+      setIsPlaying(true);
+    }
+  };
+
+  const playPreviousTrack = () => {
+    if (!currentTrack || playlist.length === 0) return;
+    
+    const currentIndex = playlist.findIndex(track => track._id === currentTrack._id);
+    if (currentIndex > 0) {
+      const previousTrack = playlist[currentIndex - 1];
+      setCurrentTrack(previousTrack);
+      setIsPlaying(true);
+    }
+  };
+
   return {
     currentTrack,
     isPlaying,
@@ -125,7 +157,12 @@ export const useAudioPlayer = () => {
     seek,
     changeVolume,
     playTrack,
-    setCurrentTrack
+    setCurrentTrack,
+    setPlaylist,
+    playNextTrack,
+    playPreviousTrack,
+    hasNext: currentTrack && playlist.length > 0 && playlist.findIndex(t => t._id === currentTrack._id) < playlist.length - 1,
+    hasPrevious: currentTrack && playlist.length > 0 && playlist.findIndex(t => t._id === currentTrack._id) > 0
   };
 };
 

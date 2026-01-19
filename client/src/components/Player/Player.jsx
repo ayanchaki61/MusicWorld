@@ -10,7 +10,11 @@ const Player = ({
   volume,
   onTogglePlayPause,
   onSeek,
-  onVolumeChange
+  onVolumeChange,
+  onNext,
+  onPrevious,
+  hasNext,
+  hasPrevious
 }) => {
   if (!currentTrack) {
     return (
@@ -51,10 +55,28 @@ const Player = ({
 
       <div className="player-controls">
         <button 
+          className="player-nav-button"
+          onClick={onPrevious}
+          disabled={!hasPrevious}
+          title="Previous Track"
+        >
+          ⏮
+        </button>
+        
+        <button 
           className="player-play-button"
           onClick={onTogglePlayPause}
         >
           {isPlaying ? '⏸' : '▶'}
+        </button>
+        
+        <button 
+          className="player-nav-button"
+          onClick={onNext}
+          disabled={!hasNext}
+          title="Next Track"
+        >
+          ⏭
         </button>
         
         <div className="player-progress">

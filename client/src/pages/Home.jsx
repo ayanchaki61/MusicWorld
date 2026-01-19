@@ -10,6 +10,11 @@ const Home = () => {
   const audioPlayer = useAudioPlayer();
   const musicLibrary = useMusicLibrary();
 
+  // Update playlist whenever music library changes
+  React.useEffect(() => {
+    audioPlayer.setPlaylist(musicLibrary.music);
+  }, [musicLibrary.music]);
+
   const handleVoteUpdate = (trackId, voteData) => {
     // Update the vote counts in the music library
     musicLibrary.setMusic(prevMusic => 
@@ -67,6 +72,20 @@ const Home = () => {
             ))}
           </select>
         </div>
+
+        <div className="sort-filter">
+          <label>Sort By:</label>
+          <select
+            value={musicLibrary.sortBy}
+            onChange={(e) => musicLibrary.setSortBy(e.target.value)}
+            className="sort-select"
+          >
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="title-asc">Title (A-Z)</option>
+            <option value="title-desc">Title (Z-A)</option>
+          </select>
+        </div>
       </div>
 
       {musicLibrary.loading ? (
@@ -114,6 +133,10 @@ const Home = () => {
         onTogglePlayPause={audioPlayer.togglePlayPause}
         onSeek={audioPlayer.seek}
         onVolumeChange={audioPlayer.changeVolume}
+        onNext={audioPlayer.playNextTrack}
+        onPrevious={audioPlayer.playPreviousTrack}
+        hasNext={audioPlayer.hasNext}
+        hasPrevious={audioPlayer.hasPrevious}
       />
     </div>
   );

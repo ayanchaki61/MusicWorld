@@ -9,6 +9,7 @@ export const useMusicLibrary = (initialGenre = 'all') => {
   const [selectedLanguage, setSelectedLanguage] = useState('all');
   const [selectedArtist, setSelectedArtist] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('newest');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [genres, setGenres] = useState([]);
@@ -42,8 +43,25 @@ export const useMusicLibrary = (initialGenre = 'all') => {
         params.search = searchQuery;
       }
       
+      if (sortBy) {
+        params.sort = sortBy;
+      }
+      
       const response = await musicService.getAllMusic(params);
-      setMusic(response.data);
+      let sortedMusic = response.data;
+      
+      // Client-side sorting
+      if (sortBy === 'newest') {
+        sortedMusic = [...response.data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      } else if (sortBy === 'oldest') {
+        sortedMusic = [...response.data].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+      } else if (sortBy === 'title-asc') {
+        sortedMusic = [...response.data].sort((a, b) => a.title.localeCompare(b.title));
+      } else if (sortBy === 'title-desc') {
+        sortedMusic = [...response.data].sort((a, b) => b.title.localeCompare(a.title));
+      }
+      
+      setMusic(sortedMusic);
       setTotalPages(response.totalPages);
     } catch (err) {
       setError(err.message || 'Failed to fetch music');
@@ -95,7 +113,7 @@ export const useMusicLibrary = (initialGenre = 'all') => {
   // Fetch music when filters change
   useEffect(() => {
     fetchMusic();
-  }, [selectedGenre, selectedLanguage, selectedArtist, searchQuery, currentPage]);
+  }, [selectedGenre, selectedLanguage, selectedArtist, searchQuery, sortBy, currentPage]);
 
   const handleGenreChange = (genre) => {
     setSelectedGenre(genre);
@@ -117,6 +135,11 @@ export const useMusicLibrary = (initialGenre = 'all') => {
     setCurrentPage(1);
   };
 
+  const handleSortChange = (sort) => {
+    setSortBy(sort);
+    setCurrentPage(1);
+  };
+
   const refresh = () => {
     fetchMusic();
   };
@@ -130,6 +153,7 @@ export const useMusicLibrary = (initialGenre = 'all') => {
     selectedLanguage,
     selectedArtist,
     searchQuery,
+    sortBy,
     currentPage,
     totalPages,
     genres,
@@ -139,6 +163,7 @@ export const useMusicLibrary = (initialGenre = 'all') => {
     setSelectedLanguage: handleLanguageChange,
     setSelectedArtist: handleArtistChange,
     setSearchQuery: handleSearch,
+    setSortBy: handleSortChange,
     setCurrentPage,
     refresh
   };
